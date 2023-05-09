@@ -19,3 +19,12 @@ test("Invalid form becomes valid when email has a @ and length of 3 characters",
 
   expect(result).toEqual({ status: "VALID", email: "a@b" });
 });
+
+test("Valid form can be sent", () => {
+  const editValidEmail: Action = { type: "EDIT", email: "dan@example.com" };
+  const send: Action = { type: "SEND" };
+
+  const result = [editValidEmail, send].reduce(reducer, initialState);
+
+  expect(result).toEqual({ status: "LOADING", email: "dan@example.com" });
+});
