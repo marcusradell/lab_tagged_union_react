@@ -1,4 +1,4 @@
-export type InitialState = { status: "INITIAL"; email: null };
+export type InitialState = { status: "INITIAL"; email: "" };
 
 export type InvalidState = { status: "INVALID"; email: string };
 
@@ -16,7 +16,7 @@ export type Action = EditAction | SendAction;
 
 export type Reducer = (state: State, action: Action) => State;
 
-export const initialState: InitialState = { status: "INITIAL", email: null };
+export const initialState: InitialState = { status: "INITIAL", email: "" };
 
 export const reducer: Reducer = (state, action) => {
   switch (action.type) {
